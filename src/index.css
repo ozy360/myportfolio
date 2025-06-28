@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+.heading {
+  @apply text-2xl lg:text-3xl font-bold pb-10 uppercase
+}
+
+.container {
+  @apply py-36 md:py-54
+}
+
+.btn-outline {
+  @apply hover:bg-black hover:text-yellow-300 hover:border-black  
+}
