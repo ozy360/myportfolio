@@ -22,9 +22,9 @@ export default function Hero() {
                 duration: 0.6,
               }}
             >
-              <button className="btn btn-neutral text-yellow-300">
+              <a href="#projects" className="btn btn-neutral text-yellow-300">
                 View projects
-              </button>
+              </a>
             </motion.div>
             <a href="#footer" className="btn btn-square btn-outline">
               <svg

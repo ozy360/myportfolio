@@ -19,8 +19,8 @@ function App() {
           <div id="stack"></div>
           <Stack />
         </div>
-        <Footer />
       </div>
+      <Footer />
     </main>
   );
 }
