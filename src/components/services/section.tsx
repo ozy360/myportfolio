@@ -80,7 +80,7 @@ export default function Services() {
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 space-y-4 lg:space-y-0">
           {SERVICES_OBJ.map((x) => (
             <Animate key={x.name || x.description}>
-              <div className="card bg-transparent shadow-none border break-inside-avoid p-2 rounded-lg h-max md:h-[220px] lg:h-[230px]">
+              <div className="card bg-transparent shadow-none border break-inside-avoid p-2 rounded-lg h-max md:h-[220px] lg:h-[250px]">
                 <div className="card-body p-2">
                   <div className="gap-4">
                     <div>{x.image}</div>

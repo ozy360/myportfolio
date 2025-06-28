@@ -104,11 +104,11 @@ export default function Projects() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
           <dialog
             ref={modalRef}
-            className="m-auto rounded-xl w-11/12 z-60 max-w-3xl bg-yellow-300 border fixed top-0 left-0 p-4"
+            className="m-auto rounded-xl w-11/12 z-60 max-w-3xl bg-yellow-300 border border-black text-black fixed top-0 left-0 p-4"
           >
             <div>
               <h3 className="font-bold text-lg">{filterData.name}</h3>
-              <div className="mt-4">
+              <div className="mt-3">
                 <div className="embla overflow-hidden" ref={emblaRef}>
                   <div className="embla__container flex">
                     {filterData.images.map((img, idx) => (
@@ -124,7 +124,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="flex flex-row items-center gap-x-2 py-4">
+              <div className="flex flex-row items-center gap-x-2 pt-2">
                 {filterData.tags.map((tag, iindex) => (
                   <button key={iindex} className="btn btn-sm btn-outline">
                     {tag}
@@ -189,7 +189,7 @@ export default function Projects() {
                   <p className="pt-4 h-24">{project.description}</p>
                 </div>
 
-                <div className="card-footer flex justify-between mt-8">
+                <div className="card-footer flex justify-between mt-12">
                   <div></div>
                   <div>
                     <a

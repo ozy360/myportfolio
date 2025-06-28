@@ -47,7 +47,7 @@ export default function TechStack() {
                   alt={`${tech.tech} logo`}
                   className="w-12 h-12 mb-3 object-contain"
                 />
-                <span className="text-sm font-medium text-center text-gray-700">
+                <span className="text-sm font-medium text-center">
                   {tech.tech}
                 </span>
               </div>

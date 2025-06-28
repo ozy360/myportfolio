@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+html {
+  @apply lg:text-lg
+}
 
 .heading {
   @apply text-2xl lg:text-3xl font-bold pb-10 uppercase
