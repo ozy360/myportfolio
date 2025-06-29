@@ -182,14 +182,14 @@ export default function Projects() {
                     className="w-full h-[200px] bg-gray-100 rounded-md object-cover"
                   />
                 </figure>
-                <div className="card-body">
+                <div className="card-body !p-0 !p-2">
                   <h2 className="card-title text-xl font-semibold">
                     {project.name}
                   </h2>
                   <p className="pt-4 h-24">{project.description}</p>
                 </div>
 
-                <div className="card-footer flex justify-between mt-12">
+                <div className="card-footer flex justify-between mt-16">
                   <div></div>
                   <div>
                     <a

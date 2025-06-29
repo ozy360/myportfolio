@@ -24,11 +24,19 @@ export default function Nav() {
           <div className="mb-4 logo text-3xl">wo</div>
           <div className="hidden sm:inline-block -mr-1">
             <div className="flex items-center space-x-6">
-              <a href="#projects">Projects</a>
-              <a href="#services">Services</a>
-              <a href="#stack">Stack</a>
+              <a href="#projects" className="hover:underline">
+                Projects
+              </a>
+              <a href="#services" className="hover:underline">
+                Services
+              </a>
+              <a href="#stack" className="hover:underline">
+                Stack
+              </a>
               {/* <a href="">Contact</a> */}
-              <a href="">CV</a>
+              <a href="" className="hover:underline">
+                CV
+              </a>
               <a
                 href="https://api.whatsapp.com/send?phone=2349156059525"
                 target="_blank"
