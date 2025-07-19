@@ -34,7 +34,11 @@ export default function Nav() {
                 Stack
               </a>
               {/* <a href="">Contact</a> */}
-              <a href="" className="hover:underline">
+              <a
+                href="/OSBORN_CV.pdf"
+                target="blank"
+                className="hover:underline"
+              >
                 CV
               </a>
               <a
@@ -72,7 +76,9 @@ export default function Nav() {
                 <a href="#services">Services</a>
                 <a href="#stack">Stack</a>
                 {/* <a href="">Contact</a> */}
-                <a href="">CV</a>
+                <a href="/OSBORN_CV.pdf" target="blank">
+                  CV
+                </a>
                 <div className="flex gap-x-4">
                   <a
                     href="https://api.whatsapp.com/send?phone=2349156059525"
