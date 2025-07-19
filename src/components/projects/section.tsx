@@ -86,6 +86,22 @@ export default function Projects() {
       repo: "https://github.com/ozy360/finance-blog",
       tags: ["Next.js", "Tailwind CSS", "Radix UI", "MongoDB"],
     },
+    {
+      image: "fintech2.png",
+      images: [
+        "/fintech1.png",
+        "/fintech2.png",
+        "/fintech3.png",
+        "/fintech4.png",
+        "/fintech5.png",
+      ],
+      name: "Fintech Dashboard",
+      description:
+        "A multi-wallet fintech dashboard that allows users to perform transactions, built with Next.js, Tailwind CSS, MongoDB, and Mantine UI.",
+      link: "https://fintechdashboard-kappa.vercel.app/",
+      repo: "https://github.com/ozy360/fintechdashboard",
+      tags: ["Next.js", "Tailwind CSS", "Mantine UI", "MongoDB"],
+    },
   ];
 
   useEffect(() => {
