@@ -89,7 +89,7 @@ export default function Projects() {
     {
       image: "fintech2.png",
       images: [
-        "/fintech1.png",
+        "/fintech.png",
         "/fintech2.png",
         "/fintech3.png",
         "/fintech4.png",
@@ -140,9 +140,9 @@ export default function Projects() {
                 </div>
               </div>
 
-              <div className="flex flex-row items-center gap-x-2 pt-2">
-                {filterData.tags.map((tag, iindex) => (
-                  <button key={iindex} className="btn btn-sm btn-outline">
+              <div className="flex flex-row flex-wrap items-center gap-2 pt-2">
+                {filterData.tags.map((tag, index) => (
+                  <button key={index} className="btn btn-sm btn-outline">
                     {tag}
                   </button>
                 ))}
