@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center space-y-4 text-center">
           {/* Logo */}
-          <div className="mb-6 logo text-9xl">wo</div>
+          <div className="mb-6 logo text-9xl text-black">wo</div>
 
           {/* Links */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-gray-900">

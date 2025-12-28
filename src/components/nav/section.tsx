@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Button } from "../ui/button";
 
 export default function Nav() {
   const [open, setOpen] = useState<boolean>(false);
@@ -20,7 +21,7 @@ export default function Nav() {
           scrolled ? "shadow-sm" : ""
         }`}
       >
-        <div className="flex justify-between items-center text-sm space-x-6 px-6">
+        <div className="flex justify-between items-center text-sm space-x-6 px-6 text-black">
           <div className="mb-4 logo text-3xl">wo</div>
           <div className="hidden sm:inline-block -mr-1">
             <div className="flex items-center space-x-6">
@@ -35,19 +36,24 @@ export default function Nav() {
               </a>
               {/* <a href="">Contact</a> */}
               <a
-                href="/OSBORN_CV.pdf"
+                href="https://1drv.ms/w/c/1701298c113fdcd2/IQD30CthYlIGT5gz7xR4PMsMAWv_UG2enWT7G6Qg66Rjw-s?e=UNmgPl"
                 target="blank"
                 className="hover:underline"
               >
                 CV
               </a>
-              <a
-                href="https://api.whatsapp.com/send?phone=2349156059525"
-                target="_blank"
-                className="btn btn-neutral btn-sm text-yellow-300"
+              <Button
+                size="sm"
+                className="bg-black text-yellow-300 hover:bg-black/80 cursor-pointer"
+                asChild
               >
-                Get in touch
-              </a>
+                <a
+                  href="https://api.whatsapp.com/send?phone=2349156059525"
+                  target="_blank"
+                >
+                  Get in touch
+                </a>
+              </Button>
             </div>
           </div>
           <div
@@ -71,7 +77,7 @@ export default function Nav() {
         <div>
           {open && (
             <>
-              <div className="flex flex-col items-left p-6 text-left space-y-6 sm:hidden">
+              <div className="flex flex-col items-left p-6 text-left space-y-6 sm:hidden text-black border-t border-black/10">
                 <a href="#projects">Projects</a>
                 <a href="#services">Services</a>
                 <a href="#stack">Stack</a>

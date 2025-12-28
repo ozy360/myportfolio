@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import ShakeIcon from "../Shake";
+import { Button } from "../ui/button";
 
 export default function Hero() {
   return (
@@ -21,27 +22,37 @@ export default function Hero() {
               duration: 0.6,
             }}
           >
-            <a href="#projects" className="btn btn-neutral text-yellow-300">
-              View projects
-            </a>
-          </motion.div>
-          <a href="#footer" className="btn btn-square btn-outline">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-corner-right-down"
+            <Button
+              className="bg-black text-yellow-300 hover:bg-black/90"
+              asChild
             >
-              <path d="m10 15 5 5 5-5" />
-              <path d="M4 4h7a4 4 0 0 1 4 4v12" />
-            </svg>
-          </a>
+              <a href="#projects">View projects</a>
+            </Button>
+          </motion.div>
+          <Button
+            variant="outline"
+            size="icon"
+            className="border-black text-black  bg-transparent hover:bg-black/10"
+            asChild
+          >
+            <a href="#footer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-corner-right-down"
+              >
+                <path d="m10 15 5 5 5-5" />
+                <path d="M4 4h7a4 4 0 0 1 4 4v12" />
+              </svg>
+            </a>
+          </Button>
         </div>
       </>
     </div>

@@ -1,7 +1,22 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Animate from "../Animate";
-import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
+import { Button } from "../ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "../ui/dialog";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 
 type ProjectType = {
   image: string;
@@ -15,8 +30,6 @@ type ProjectType = {
 
 export default function Projects() {
   const [filterData, setFilterData] = useState<ProjectType | null>(null);
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
-  const modalRef = useRef<HTMLDialogElement | null>(null);
 
   const PROJECT_OBJ: ProjectType[] = [
     {
@@ -50,7 +63,7 @@ export default function Projects() {
       images: ["/insurance.png", "/insurance2.png", "/insurance3.png"],
       name: "Insurance website",
       description:
-        "A modern website for an insurance company, featuring a clean and professional design with diffee=rent sections. Developed using React, Tailwind CSS, and DaisyUI.",
+        "A modern website for an insurance company, featuring a clean and professional design with different sections. Developed using React, Tailwind CSS, and DaisyUI.",
 
       link: "https://insurancewebsite-lnhn.vercel.app/",
       repo: "https://github.com/ozy360/insurancewebsite",
@@ -73,7 +86,7 @@ export default function Projects() {
       tags: ["Next.js", "Tailwind CSS", "Radix UI", "MongoDB"],
     },
     {
-      image: "fintech2.png",
+      image: "/fintech2.png",
       images: [
         "/fintech.png",
         "/fintech2.png",
@@ -88,117 +101,159 @@ export default function Projects() {
       repo: "https://github.com/ozy360/fintechdashboard",
       tags: ["Next.js", "Tailwind CSS", "Mantine UI", "MongoDB"],
     },
+    {
+      image: "/documentchat2.png",
+      images: ["/documentchat.png", "/documentchat2.png", "/documentchat3.png"],
+      name: "Document chat",
+      description:
+        "A Next.js application for chatting with your documents using AI-powered embeddings and vector search. Built Pinecone, Supabase and Shadcn UI.",
+      link: "https://documentchat-seven.vercel.app/",
+      repo: "https://github.com/ozy360/documentchat",
+      tags: ["Next.js", "Shadcn UI", "Supabase", "Pinecone"],
+    },
+    {
+      image: "/qa3.png",
+      images: [
+        "/qa.png",
+        "/qa2.png",
+        "/qa3.png",
+        "qa4.png",
+        "qa5.png",
+        "qa6.png",
+      ],
+      name: "NuxtQA",
+      description:
+        "A community-driven Question & Answer platform built with Nuxt 3, Prisma, and PostgreSQL.",
+      link: "https://nuxtqamain.vercel.app/",
+      repo: "https://github.com/ozy360/nuxtqamain",
+      tags: ["Nuxt 3", "Postgresql", "Prisma"],
+    },
   ];
-
-  useEffect(() => {
-    if (filterData) {
-      modalRef.current?.showModal();
-      // emblaApi?.scrollTo(0); // Reset carousel to first slide
-    }
-  }, [filterData]);
 
   return (
     <>
-      <div className="heading text-left heading">Projects</div>
+      <div className="heading text-left">Projects</div>
 
       {/* Modal */}
-      {filterData && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
-          <dialog
-            ref={modalRef}
-            className="m-auto rounded-xl w-11/12 z-60 max-w-3xl bg-yellow-300 border border-black text-black fixed top-0 left-0 p-4"
-          >
-            <div>
-              <h3 className="font-bold text-lg">{filterData.name}</h3>
-              <div className="mt-3">
-                <div className="embla overflow-hidden" ref={emblaRef}>
-                  <div className="embla__container flex">
-                    {filterData.images.map((img, idx) => (
-                      <div className="embla__slide flex-[0_0_100%]" key={idx}>
+      <Dialog
+        open={!!filterData}
+        onOpenChange={(open) => !open && setFilterData(null)}
+      >
+        <DialogContent className="md:max-w-2xl max-h-[90vh] overflow-y-auto bg-yellow-300 border-black text-black ![&>button]:outline-none">
+          <DialogHeader>
+            <DialogTitle className="font-bold text-lg">
+              {filterData?.name}
+            </DialogTitle>
+          </DialogHeader>
+
+          {filterData && (
+            <div className="mt-3">
+              <Carousel
+                plugins={[Autoplay()]}
+                opts={{ loop: true }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {filterData.images.map((img, idx) => (
+                    <CarouselItem key={idx}>
+                      <div className="flex w-full h-[200px] sm:h-[300px] items-center justify-center overflow-hidden rounded-md">
                         <img
                           src={img}
-                          className="w-full h-full"
+                          className="w-full h-full object-cover"
                           alt={`slide-${idx}`}
                         />
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-row flex-wrap items-center gap-2 pt-2">
-                {filterData.tags.map((tag, index) => (
-                  <button key={index} className="btn btn-sm btn-outline">
-                    {tag}
-                  </button>
-                ))}
-              </div>
-
-              <div className="modal-action">
-                <form method="dialog">
-                  <a
-                    href={filterData.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline mr-2"
-                  >
-                    View Live
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-square-arrow-out-up-right size-5 ml-1"
-                    >
-                      <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
-                      <path d="m21 3-9 9" />
-                      <path d="M15 3h6v6" />
-                    </svg>
-                  </a>
-                  <button
-                    className="btn btn-neutral text-yellow-300"
-                    onClick={() => setFilterData(null)}
-                  >
-                    Close
-                  </button>
-                </form>
-              </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
-          </dialog>
-        </div>
-      )}
+          )}
+
+          <p className="pt-4">{filterData?.description}</p>
+
+          <DialogFooter className="flex-row justify-end gap-2">
+            <Button
+              variant="outline"
+              className="border-black text-black hover:!bg-black/10 !bg-transparent"
+              asChild
+            >
+              <a
+                href={filterData?.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Live
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-square-arrow-out-up-right size-5 ml-1"
+                >
+                  <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+                  <path d="m21 3-9 9" />
+                  <path d="M15 3h6v6" />
+                </svg>
+              </a>
+            </Button>
+            <Button
+              className="bg-black text-yellow-300 hover:bg-black/90 cursor-pointer"
+              onClick={() => setFilterData(null)}
+            >
+              Close
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 space-y-4 lg:space-y-0">
         {PROJECT_OBJ.map((project, index) => (
           <div key={index} id={project.name}>
             <Animate>
-              <div className="card bg-transparent shadow-sm border break-inside-avoid p-2 rounded-lg pb-3">
-                <figure className="p-2">
+              <Card className="bg-transparent shadow-sm border !p-4 border-black text-black break-inside-avoid rounded-xl flex flex-col h-full">
+                <div className="p-0">
                   <img
                     src={project.image}
                     alt={project.name}
                     className="w-full h-[200px] bg-gray-100 rounded-md object-cover"
                   />
-                </figure>
-                <div className="card-body !p-0 !p-2">
-                  <h2 className="card-title text-xl font-semibold">
-                    {project.name}
-                  </h2>
-                  <p className="pt-4 h-24">{project.description}</p>
                 </div>
 
-                <div className="card-footer flex justify-between mt-16">
-                  <div></div>
-                  <div>
+                <CardHeader className="p-0">
+                  <CardTitle className="text-xl font-semibold">
+                    {project.name}
+                  </CardTitle>
+                </CardHeader>
+
+                <CardContent className="p-0 flex-1">
+                  <p className="line-clamp-4">{project.description}</p>
+                  {/* <div className="flex flex-wrap gap-2 mt-4">
+                    {project.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-1 text-xs font-semibold border border-black rounded-md"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div> */}
+                </CardContent>
+
+                <CardFooter className="flex items-center gap-x-1 p-0 mt-auto">
+                  <Button
+                    variant="outline"
+                    className="border-black text-black !bg-transparent hover:!bg-black/10"
+                    asChild
+                  >
                     <a
                       href={project.repo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-outline mr-2"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -208,35 +263,37 @@ export default function Projects() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="lucide lucide-github-icon lucide-github size-5"
+                        className="lucide lucide-github size-5"
                       >
                         <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                         <path d="M9 18c-4.51 2-5-2-7-2" />
                       </svg>
                     </a>
-                    <button
-                      className="mr-1 btn btn-outline"
-                      onClick={() => setFilterData(project)}
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    className="border-black text-black !bg-transparent cursor-pointer hover:!bg-black/10"
+                    onClick={() => setFilterData(project)}
+                  >
+                    Details
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-square-arrow-out-up-right size-5 ml-2"
                     >
-                      Details
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="lucide lucide-square-arrow-out-up-right size-5"
-                      >
-                        <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
-                        <path d="m21 3-9 9" />
-                        <path d="M15 3h6v6" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
+                      <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
+                      <path d="m21 3-9 9" />
+                      <path d="M15 3h6v6" />
+                    </svg>
+                  </Button>
+                </CardFooter>
+              </Card>
             </Animate>
           </div>
         ))}

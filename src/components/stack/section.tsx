@@ -11,6 +11,8 @@ const TECH_STACK = [
   { image: "/tailwind", tech: "Tailwind CSS" },
   { image: "/framer", tech: "Framer Motion" },
   { image: "/mongodb", tech: "MongoDB" },
+  { image: "/vue", tech: "Vue" },
+  { image: "/prisma", tech: "Prisma" },
 ];
 
 // const ANIMATION_CONFIG = {
@@ -40,7 +42,7 @@ export default function TechStack() {
             <Animate>
               <div
                 key={tech.tech}
-                className="flex flex-col items-center card bg-transparent shadow-none border break-inside-avoid p-2 rounded-lg"
+                className="flex flex-col items-center bg-transparent shadow-sm border border-black  shadow-none border break-inside-avoid p-2 rounded-xl"
               >
                 <img
                   src={`${tech.image}.png`}

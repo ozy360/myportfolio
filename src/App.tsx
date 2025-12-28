@@ -8,9 +8,9 @@ import Footer from "./components/footer/section";
 
 function App() {
   return (
-    <main className="!bg-yellow-300">
+    <main className="">
       <Nav />
-      <div className="mx-auto max-w-screen-2xl 4xl:mx-auto 4xl:max-w-screen-4x">
+      <div className="mx-auto max-w-screen-2xl 4xl:mx-auto 4xl:max-w-screen-4x bg-yellow-300">
         <div className="flex-grow mx-auto w-[90%] md:w-[70%] lg:w-[60%]">
           <Hero />
           <div id="services"></div>
