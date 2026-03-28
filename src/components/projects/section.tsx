@@ -33,20 +33,29 @@ export default function Projects() {
 
   const PROJECT_OBJ: ProjectType[] = [
     {
-      image: "/onlinestore.png",
-      images: [
-        "/onlinestore.png",
-        "/onlinestore2.png",
-        "/onlinestore3.png",
-        "/onlinestore4.png",
-        "/onlinestore5.png",
-      ],
+      image: "/ecomm.png",
+      images: ["/ecomm.png", "/ecomm2.png", "/ecomm3.png", "/ecomm4.png"],
       name: "Online Store",
       description:
         "A fully responsive e-commerce storefront featuring product listings, search functionality, and a shopping cart. Developed with Next.js, styled with Tailwind CSS and shadcn UI.",
-      link: "https://online-store-alpha-sage.vercel.app/",
-      repo: "https://github.com/ozy360/online-store",
-      tags: ["Next.js", "Tailwind CSS", "Shadcn UI"],
+      link: "https://stripe-ecomm.vercel.app/",
+      repo: "https://github.com/ozy360/stripe-ecomm",
+      tags: ["Next.js", "Tailwind CSS", "Shadcn UI", "Stripe"],
+    },
+    {
+      image: "/consultation.png",
+      images: [
+        "/consultation.png",
+        "/consultation2.png",
+        "/consultation3.png",
+        "/consultation4.png",
+      ],
+      name: "Consultation Website",
+      description:
+        "A modern and responsive consultation website designed to showcase services and facilitate client inquiries. Built with React.js and styled using Tailwind CSS for a clean and professional user experience.",
+      link: "https://consultaion-website.vercel.app/",
+      repo: "https://github.com/ozy360/consultation-website",
+      tags: ["React.js", "Tailwind CSS"],
     },
     {
       image: "/inventory.png",
@@ -65,8 +74,8 @@ export default function Projects() {
       description:
         "A modern website for an insurance company, featuring a clean and professional design with different sections. Developed using React, Tailwind CSS, and DaisyUI.",
 
-      link: "https://insurancewebsite-lnhn.vercel.app/",
-      repo: "https://github.com/ozy360/insurancewebsite",
+      link: "https://newinsurance-flax.vercel.app/",
+      repo: "https://github.com/ozy360/newinsurance",
       tags: ["React", "Tailwind CSS", "DaisyUI"],
     },
     {
@@ -106,7 +115,7 @@ export default function Projects() {
       images: ["/documentchat.png", "/documentchat2.png", "/documentchat3.png"],
       name: "Document chat",
       description:
-        "A Next.js application for chatting with your documents using AI-powered embeddings and vector search. Built Pinecone, Supabase and Shadcn UI.",
+        "A Next.js application for chatting with your documents using AI. Built using Pinecone, Supabase and Shadcn UI.",
       link: "https://documentchat-seven.vercel.app/",
       repo: "https://github.com/ozy360/documentchat",
       tags: ["Next.js", "Shadcn UI", "Supabase", "Pinecone"],
@@ -131,7 +140,7 @@ export default function Projects() {
   ];
 
   return (
-    <>
+    <div className="container">
       <div className="heading text-left">Projects</div>
 
       {/* Modal */}
@@ -231,7 +240,7 @@ export default function Projects() {
                 </CardHeader>
 
                 <CardContent className="p-0 flex-1">
-                  <p className="line-clamp-4">{project.description}</p>
+                  <p className="line-clamp-3">{project.description}</p>
                   {/* <div className="flex flex-wrap gap-2 mt-4">
                     {project.tags.map((tag, idx) => (
                       <span
@@ -298,6 +307,6 @@ export default function Projects() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

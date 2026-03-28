@@ -75,7 +75,7 @@ export default function Services() {
 
   return (
     <>
-      <div className="container" id="services">
+      <div className="" id="services">
         <div className="heading">Services</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-4 space-y-4 lg:space-y-0">
           {SERVICES_OBJ.map((x) => (

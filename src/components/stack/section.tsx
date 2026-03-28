@@ -24,7 +24,7 @@ const TECH_STACK = [
 
 export default function TechStack() {
   return (
-    <div className="container">
+    <div className="pb-36 md:pb-54">
       <div className="heading text-left heading">Tech Stack</div>
       <div className="max-w-4xl mx-auto">
         {/* <h2 className="text-3xl font-bold text-center mb-12">Tech Stack</h2> */}

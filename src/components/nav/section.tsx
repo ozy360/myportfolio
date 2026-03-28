@@ -36,7 +36,7 @@ export default function Nav() {
               </a>
               {/* <a href="">Contact</a> */}
               <a
-                href="https://1drv.ms/w/c/1701298c113fdcd2/IQD30CthYlIGT5gz7xR4PMsMAWv_UG2enWT7G6Qg66Rjw-s?e=UNmgPl"
+                href="https://docs.google.com/document/d/1GjIuuWeQ8h59JK64CkB3U7ME6wznJwWXpjjVDHHFzF4/edit?usp=sharing"
                 target="blank"
                 className="hover:underline"
               >

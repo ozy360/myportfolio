@@ -13,10 +13,14 @@ function App() {
       <div className="mx-auto max-w-screen-2xl 4xl:mx-auto 4xl:max-w-screen-4x bg-yellow-300">
         <div className="flex-grow mx-auto w-[90%] md:w-[70%] lg:w-[60%]">
           <Hero />
-          <div id="services"></div>
+          <div>
+            <div id="services"></div>
+          </div>
           <Services />
           <Projects />
-          <div id="stack"></div>
+          <div>
+            <div id="stack"></div>
+          </div>
           <Stack />
         </div>
       </div>
