@@ -12,6 +12,7 @@ const TECH_STACK = [
   { image: "/framer", tech: "Framer Motion" },
   { image: "/mongodb", tech: "MongoDB" },
   { image: "/vue", tech: "Vue" },
+  { image: "/postgresql", tech: "Postgresql" },
   { image: "/prisma", tech: "Prisma" },
 ];
 
